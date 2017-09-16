@@ -21,7 +21,7 @@
     <color name="dot_light_screen3">#93c6fd</color>
     <color name="dot_light_screen4">#e4b5fc</color>
     <color name="white">#ffffff</color>
-    <color name="bg_gradient_start">#31244e</color>
+    <color name="bg_gradient_start">#a6102b</color>
     <color name="bg_gradient_end">#f34867</color>
 
     <array name="array_dot_active">
