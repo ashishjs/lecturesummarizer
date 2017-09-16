@@ -1,8 +1,13 @@
 package mn.lecturesummarizer;
 
-/**
- * Created by ashishjayan on 9/16/2017.
- */
+import android.app.Activity;
+import android.os.Bundle;
 
-public class RecordActivity {
+
+public class RecordActivity extends Activity{
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.record_activity);
+    }
 }

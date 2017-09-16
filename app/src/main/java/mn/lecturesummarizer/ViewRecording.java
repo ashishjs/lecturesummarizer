@@ -1,8 +1,13 @@
 package mn.lecturesummarizer;
 
-/**
- * Created by ashishjayan on 9/16/2017.
- */
 
-public class ViewRecording {
+import android.app.Activity;
+import android.os.Bundle;
+
+public class ViewRecording extends Activity{
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.listview_recording);
+    }
 }
