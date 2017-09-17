@@ -39,7 +39,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-/*
+
 import com.google.cloud.speech.v1.RecognitionAudio;
 import com.google.cloud.speech.v1.RecognitionConfig;
 import com.google.cloud.speech.v1.RecognitionConfig.AudioEncoding;
@@ -48,7 +48,7 @@ import com.google.cloud.speech.v1.SpeechClient;
 import com.google.cloud.speech.v1.SpeechRecognitionAlternative;
 import com.google.cloud.speech.v1.SpeechRecognitionResult;
 import com.google.protobuf.ByteString;
-*/
+
 import static android.R.attr.data;
 
 public class MainActivity extends AppCompatActivity {
@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Recording Completed",
                         Toast.LENGTH_LONG).show();
                 playLastStoredAudioMusic();
-                //getTranscriptFromGoogleCloud();
+                getTranscriptFromGoogleCloud();
             }
         });
 
@@ -272,7 +272,7 @@ public class MainActivity extends AppCompatActivity {
         mediaRecorder.setOutputFile(voiceStoragePath);
     }
 
-    /*
+
     private void getTranscriptFromGoogleCloud(){
         try{
             Toast.makeText(context,"Google Cloud",Toast.LENGTH_SHORT);
@@ -312,7 +312,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    */
+
 
     }
 

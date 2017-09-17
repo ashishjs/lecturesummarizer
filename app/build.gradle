@@ -32,6 +32,5 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
     compile 'com.android.volley:volley:1.0.0'
-    compile 'com.google.cloud:google-cloud-speech:0.23.1-alpha'
     compile 'com.android.support:multidex:1.0.0'
 }
