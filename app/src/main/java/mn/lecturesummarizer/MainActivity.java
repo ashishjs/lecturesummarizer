@@ -17,6 +17,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Locale;
 
+import mn.lecturesummarizer.R;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView txtSpeechInput;

@@ -18,12 +18,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ViewRecording" />
+        <activity android:name=".ViewSummary" />
         <activity android:name=".MainActivity" />
+
         <activity
             android:name=".NavigationMainActivity"
             android:label="@string/title_activity_navigation_main"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+       
     </application>
 
 </manifest>
