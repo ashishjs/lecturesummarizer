@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private final int REQ_CODE_SPEECH_INPUT = 100;
     public File myFile;
     public  boolean classCreationSucessfull = false;
-
+//
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
