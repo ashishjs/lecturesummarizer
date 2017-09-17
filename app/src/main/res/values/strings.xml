@@ -1,3 +1,35 @@
 <resources>
-    <string name="app_name">lecturesummarizer</string>
+    <string name="app_name">Snap Summarize</string>
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+
+    <string name="slide_1_title">Welcome To Lecture Summarizer</string>
+    <string name="slide_1_desc">The best AI Summarizer for your long lectures!</string>
+
+    <string name="slide_2_title">Automatic Transcript</string>
+    <string name="slide_2_desc">Lecture Summarizer will automatically create a text transcript for you!</string>
+
+    <string name="slide_3_title">Record Audio Lectures</string>
+    <string name="slide_3_desc">Record your Audio for playback later!</string>
+
+    <string name="slide_4_title">Instant Summarizer</string>
+    <string name="slide_4_desc">Summarize your lecture recording at the snap of you finger!</string>
+
+    <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
+    <string name="play_again">Play Again</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Namaste World!</string>
+    <string name="speech_prompt">Audio Processing has Begun</string>
+    <string name="speech_not_supported">Sorry! Your device doesn\'t support speech input</string>
+    <string name="tap_on_mic">Tap Mic to start analyzing lecture</string>
+    <string name="title_activity_navigation_main">Snap Summarize</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
