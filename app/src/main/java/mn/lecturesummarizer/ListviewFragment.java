@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static mn.lecturesummarizer.R.id.ListViewSumm;
 
@@ -31,10 +32,25 @@ public class ListviewFragment extends Fragment {
     public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
 
       View view =inflater.inflate(R.layout.fragment_listview,container,false);
-       // toolbar=(Toolbar)view.findViewById()
         ArrayList<String> data=new ArrayList<>();
-            data.add("Hello");
-            data.add("door");
+
+       // toolbar=(Toolbar)view.findViewById()
+        MySQLiteHelper sqLiteHelper = new MySQLiteHelper(getContext());
+        List<LectureNotes> myLecturesNotes = sqLiteHelper.getAllNotes();
+        if(myLecturesNotes.size() == 0){
+            data.add("You have no recorded lectures!!");
+        }
+
+        else
+        {
+            for(int i = 0;i<myLecturesNotes.size();i++)
+                data.add(myLecturesNotes.get(i).getTitle());
+        }
+        /*
+        LectureNotes mynote = sqLiteHelper.getLecture(1);
+        data.add(mynote.getSummary() + mynote.getTitle() + mynote.getTranscript());
+        */
+
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1,data);
         listview =(ListView)view.findViewById(ListViewSumm);
         listview.setAdapter(adapter);

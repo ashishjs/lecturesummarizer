@@ -75,10 +75,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                 null,
                 values);
         sqLiteDatabase.close();
-        for(int i = 0;i<1000;i++){
-            Log.d("Adding Lecture ", myLectureNotes.toString());
-
-        }
     }
 
     public  LectureNotes getLecture(int id){
@@ -134,6 +130,26 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             while (cursor.moveToNext());
         }
         return myNotes;
+    }
+
+    public List<String> getAllTitles(){
+        List<String> myTitles = new LinkedList<>();
+
+        String query ="SELECT title FROM " + LECTURE_NOTES;
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery(query,null);
+        String myTitle = null;
+        List<String> allTitles = new LinkedList<>();
+
+        if(cursor.moveToFirst()){
+            do{
+                myTitle = cursor.toString();
+                allTitles.add(myTitle);
+
+            }while (cursor.moveToNext());
+        }
+
+        return allTitles;
     }
 
 }
