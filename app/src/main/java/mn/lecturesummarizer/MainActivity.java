@@ -413,7 +413,7 @@ public class MainActivity extends AppCompatActivity {
 
         alertBuilder.show();
     }
-
+//Commiting to Dar
 
     public void getRequestToPythonClient()
     {
