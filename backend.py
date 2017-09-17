@@ -8,21 +8,25 @@ api = Api(app)
 
 @app.route('/api/summarize/', methods=['POST', 'GET'])
 def Summarize():
+    status = 200
     response = {
         'result': {}
     }
 
     try:
+        print(request.json.keys())
         data = request.json.get('data')
-        response['result']['summary'] = summarize(data, ratio=0.20)
+        response['result']['summary'] = summarize(data, ratio=0.15)
         response['result']['keywords'] = keywords(data, ratio=0.01).split('\n')
     except ValueError as e:
+        status = 400
         response['result'] = str(e)
 
     except AttributeError as e:
-        response['result'] = "Missing Text"
+        status = 400
+        response['result'] = "data field required"
 
-    return jsonify(response)
+    return jsonify(response), status
 
 
 if __name__ == '__main__':
