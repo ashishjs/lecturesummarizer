@@ -422,7 +422,7 @@ public class MainActivity extends AppCompatActivity {
 
         JSONObject LectureData = new JSONObject();
         try{
-            LectureData.put("data",Transcript);
+            LectureData.put("data","A group of pleasant-looking young men, neatly dressed in the spruce, gray uniforms of the cadet corps of Woodcrest Military Institute, stood at ease in one of the halls downstairs in Locke Hall. They were representatives from the various classes, ranging from the senior, or first class, to the third or sophomore class. As yet the two representatives from the fourth or freshman class had not arrived, and it was for these two cadets that the others were waiting.");
         }
         catch (Exception e){
             Toast.makeText(context,e.toString(),Toast.LENGTH_SHORT).show();
@@ -440,8 +440,13 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(context,response.toString(),Toast.LENGTH_SHORT).show();
                         try {
 
-                            Summary = response.toString();
-                            ifEverythingWorksOut();
+                            if(response.toString() != null)
+                            {
+                                Summary = response.toString();
+                                ifEverythingWorksOut();
+                            }
+                            else
+                                Toast.makeText(context,"Sentences Too Short!!",Toast.LENGTH_SHORT).show();
                         }
 
                         catch (Exception e){
@@ -455,6 +460,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error){
                         // Do something when error occurred
                         Toast.makeText(context,error.toString(),Toast.LENGTH_SHORT).show();
+
                     }
                 }
         );
