@@ -19,18 +19,12 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="60dp"
         android:gravity="center"
-        android:orientation="vertical" >
-
-        <ImageButton
-            android:id="@+id/btnSpeak"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:src="@drawable/ico_mic" />
+        android:orientation="vertical"
+        android:id="@+id/linearLayout3"
+        android:layout_alignBottom="@+id/btnStop"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="23dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -40,6 +34,28 @@
             android:textColor="@color/white"
             android:textSize="15dp"
             android:textStyle="normal" />
+
+
     </LinearLayout>
 
+    <ImageButton
+        android:id="@+id/btnStop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="44dp"
+        android:layout_marginStart="37dp"
+        android:background="@null"
+        android:src="@drawable/ico_mic" />
+
+    <ImageButton
+        android:id="@+id/btnSpeak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:src="@drawable/ico_mic"
+        android:layout_marginEnd="11dp"
+        android:layout_alignBottom="@+id/linearLayout3"
+        android:layout_alignEnd="@+id/linearLayout3" />
 </RelativeLayout>
