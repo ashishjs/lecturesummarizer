@@ -14,7 +14,6 @@ def Summarize():
     }
 
     try:
-        print(request.json.keys())
         data = request.json.get('data')
         response['result']['summary'] = summarize(data, ratio=0.15)
         response['result']['keywords'] = keywords(data, ratio=0.01).split('\n')
