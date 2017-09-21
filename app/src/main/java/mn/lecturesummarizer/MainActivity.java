@@ -422,7 +422,7 @@ public class MainActivity extends AppCompatActivity {
 
         JSONObject LectureData = new JSONObject();
         try{
-            LectureData.put("data","A group of pleasant-looking young men, neatly dressed in the spruce, gray uniforms of the cadet corps of Woodcrest Military Institute, stood at ease in one of the halls downstairs in Locke Hall. They were representatives from the various classes, ranging from the senior, or first class, to the third or sophomore class. As yet the two representatives from the fourth or freshman class had not arrived, and it was for these two cadets that the others were waiting.");
+            LectureData.put("data",Transcript);
         }
         catch (Exception e){
             Toast.makeText(context,e.toString(),Toast.LENGTH_SHORT).show();
@@ -445,12 +445,20 @@ public class MainActivity extends AppCompatActivity {
                                 Summary = response.toString();
                                 ifEverythingWorksOut();
                             }
-                            else
-                                Toast.makeText(context,"Sentences Too Short!!",Toast.LENGTH_SHORT).show();
+                            else{
+                                MySQLiteHelper sqLiteHelper = new MySQLiteHelper(context);
+                                //sqLiteHelper.addLecture(new LectureNotes(class_Name,Transcript,"Not enough sentences for Summary"));
+                                Log.d("Database Result",sqLiteHelper.getAllNotes().toString());
+                                Toast.makeText(context,"Sentences Too Short!! Please Try Again!!",Toast.LENGTH_SHORT).show();
+
+                            }
                         }
 
                         catch (Exception e){
-                            Toast.makeText(context,e.toString(),Toast.LENGTH_SHORT).show();
+                            MySQLiteHelper sqLiteHelper = new MySQLiteHelper(context);
+                           // sqLiteHelper.addLecture(new LectureNotes(class_Name,Transcript,"Not enough sentences for Summary"));
+                            Log.d("Database Result",sqLiteHelper.getAllNotes().toString());
+                            Toast.makeText(context,"Sentences Too Short!! Please Try Again!!",Toast.LENGTH_SHORT).show();
 
                         }
                     }
@@ -459,7 +467,10 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error){
                         // Do something when error occurred
-                        Toast.makeText(context,error.toString(),Toast.LENGTH_SHORT).show();
+                        MySQLiteHelper sqLiteHelper = new MySQLiteHelper(context);
+                        //sqLiteHelper.addLecture(new LectureNotes(class_Name,Transcript,"Not enough sentences for Summary"));
+                        Log.d("Database Result",sqLiteHelper.getAllNotes().toString());
+                        Toast.makeText(context,"Sentences Too Short!! Please Try Again!!",Toast.LENGTH_SHORT).show();
 
                     }
                 }
@@ -469,7 +480,7 @@ public class MainActivity extends AppCompatActivity {
 
     private  void ifEverythingWorksOut(){
         MySQLiteHelper sqLiteHelper = new MySQLiteHelper(context);
-        sqLiteHelper.addLecture(new LectureNotes(class_Name,Transcript,Summary));
+        //sqLiteHelper.addLecture(new LectureNotes(class_Name,Transcript,Summary));
         Log.d("Database Result",sqLiteHelper.getAllNotes().toString());
     }
 

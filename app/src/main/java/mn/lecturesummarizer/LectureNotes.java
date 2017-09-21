@@ -13,7 +13,7 @@ public class LectureNotes {
     public LectureNotes(){
     }
 
-    public LectureNotes(String Title,String Transcript,String Summary){
+    public LectureNotes(String Title, String Transcript, String Summary){
         super();
         this.title = Title;
         this.transcript = Transcript;

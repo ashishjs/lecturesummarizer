@@ -58,7 +58,7 @@ public class ListviewFragment extends Fragment {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent= new Intent(getActivity(),ViewSummary.class).putExtra(listview.getItemAtPosition(i).toString(),1);
+                Intent intent= new Intent(getActivity(),ViewSummary.class).putExtra("name",i);
                 startActivity(intent);
             }
         });
