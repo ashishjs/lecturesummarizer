@@ -79,8 +79,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
 
 
-        Cursor cursor = sqLiteDatabase.query(LECTURE_NOTES,
-                COLUMNS, " id = ?", new String[]{String.valueOf(id)}, null, null, null, null);
+        Cursor cursor = sqLiteDatabase.query(LECTURE_NOTES, COLUMNS, " id = ?", new String[]{String.valueOf(id)}, null, null, null, null);
 
         if (cursor != null)
             cursor.moveToFirst();
