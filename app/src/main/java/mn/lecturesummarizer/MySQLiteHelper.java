@@ -19,13 +19,12 @@ import java.util.List;
 
 public class MySQLiteHelper extends SQLiteOpenHelper {
 
-    private  static final int DATABASE_VERSION = 1;
-    private  static final String DATABASE_NAME = "LectureNotesDB";
+    private static final int DATABASE_VERSION = 1;
+    private static final String DATABASE_NAME = "LectureNotesDB";
 
 
     public MySQLiteHelper(Context context) {
-        super(context,DATABASE_NAME, null, DATABASE_VERSION);
-
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
 
@@ -50,49 +49,40 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
     private static final String LECTURE_NOTES = "lecturenotes";
 
-    private  static final String KEY_ID = "id";
+    private static final String KEY_ID = "id";
 
-    private  static  final String KEY_TITLE = "title";
+    private static final String KEY_TITLE = "title";
 
-    private  static  final String KEY_TRANSCRIPT = "transcript";
+    private static final String KEY_TRANSCRIPT = "transcript";
 
-    private  static  final  String KEY_SUMMARY = "summary";
+    private static final String KEY_SUMMARY = "summary";
 
-    private  static  final String[] COLUMNS = {KEY_ID,KEY_TITLE,KEY_TRANSCRIPT,KEY_SUMMARY};
+    private static final String[] COLUMNS = {KEY_ID, KEY_TITLE, KEY_TRANSCRIPT, KEY_SUMMARY};
 
-    public void addLecture(LectureNotes myLectureNotes){
+    public void addLecture(LectureNotes myLectureNotes) {
         Log.d("Adding Lecture ", myLectureNotes.toString());
 
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_TITLE,myLectureNotes.getTitle());
-        values.put(KEY_TRANSCRIPT,myLectureNotes.getTranscript());
-        values.put(KEY_SUMMARY,myLectureNotes.getSummary());
+        values.put(KEY_TITLE, myLectureNotes.getTitle());
+        values.put(KEY_TRANSCRIPT, myLectureNotes.getTranscript());
+        values.put(KEY_SUMMARY, myLectureNotes.getSummary());
 
         //inserting the values to database
-        sqLiteDatabase.insert(LECTURE_NOTES,
-                null,
-                values);
+        sqLiteDatabase.insert(LECTURE_NOTES, null, values);
         sqLiteDatabase.close();
     }
 
-    public  LectureNotes getLecture(int id){
+    public LectureNotes getLecture(int id) {
 
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
 
 
         Cursor cursor = sqLiteDatabase.query(LECTURE_NOTES,
-                COLUMNS,
-                " id = ?",
-                new String[] {String.valueOf(id) },
-                null,
-                null,
-                null,
-                null
-                );
+                COLUMNS, " id = ?", new String[]{String.valueOf(id)}, null, null, null, null);
 
-        if(cursor != null)
+        if (cursor != null)
             cursor.moveToFirst();
 
         LectureNotes notes = new LectureNotes();
@@ -105,26 +95,26 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
     }
 
-    public List<LectureNotes> getAllNotes(){
+    public List<LectureNotes> getAllNotes() {
         List<LectureNotes> myNotes = new LinkedList<LectureNotes>();
 
         String query = "SELECT * FROM " + LECTURE_NOTES;
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery(query,null);
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
 
         LectureNotes note = null;
 
-        if(cursor.moveToFirst()){
-            do{
+        if (cursor.moveToFirst()) {
+            do {
                 note = new LectureNotes();
                 note.setId(Integer.parseInt(cursor.getString(0)));
-                Log.d("All notes",cursor.getString(0).toString());
+                Log.d("All notes", cursor.getString(0).toString());
                 note.setTitle(cursor.getString(1));
-                Log.d("Poudel",cursor.getString(1));
+                Log.d("Poudel", cursor.getString(1));
                 note.setTranscript(cursor.getString(2));
-                Log.d("Jayan",cursor.getString(2));
+                Log.d("Jayan", cursor.getString(2));
                 note.setSummary(cursor.getString(3));
-                Log.d("Rickert",cursor.getString(3));
+                Log.d("Rickert", cursor.getString(3));
                 myNotes.add(note);
             }
             while (cursor.moveToNext());
@@ -132,21 +122,21 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         return myNotes;
     }
 
-    public List<String> getAllTitles(){
+    public List<String> getAllTitles() {
         List<String> myTitles = new LinkedList<>();
 
-        String query ="SELECT title FROM " + LECTURE_NOTES;
+        String query = "SELECT title FROM " + LECTURE_NOTES;
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery(query,null);
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
         String myTitle = null;
         List<String> allTitles = new LinkedList<>();
 
-        if(cursor.moveToFirst()){
-            do{
+        if (cursor.moveToFirst()) {
+            do {
                 myTitle = cursor.toString();
                 allTitles.add(myTitle);
 
-            }while (cursor.moveToNext());
+            } while (cursor.moveToNext());
         }
 
         return allTitles;
